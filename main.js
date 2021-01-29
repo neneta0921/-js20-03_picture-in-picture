@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 class Main {
   constructor() {
     this.videoElement = document.querySelector('#video');
-    this.button = document.querySelector('#button');
     this._init();
   }
 
@@ -31,13 +30,14 @@ class Main {
   }
 
   _addEvent() {
-    this.button.addEventListener('click', async () => {
+    const button = document.querySelector('#button');
+    button.addEventListener('click', async () => {
       // Disable Button
-      this.button.disabled = true;
+      button.disabled = true;
       // Start Picture in Picture
       await this.videoElement.requestPictureInPicture();
       // Reset Button
-      this.button.disabled = false;
+      button.disabled = false;
     });
   }
 }
